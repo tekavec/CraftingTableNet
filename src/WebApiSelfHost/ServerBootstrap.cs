@@ -1,4 +1,5 @@
 using System.Web.Http;
+using Newtonsoft.Json.Serialization;
 
 namespace WebApiSelfHost
 {
@@ -14,6 +15,8 @@ namespace WebApiSelfHost
                     controller = "Dashboard",
                     id = RouteParameter.Optional                    
                 });
+
+            httpConfiguration.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
         }
     }
 }
