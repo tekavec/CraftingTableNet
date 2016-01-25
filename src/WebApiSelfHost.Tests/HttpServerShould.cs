@@ -3,6 +3,7 @@ using System.Net.Http;
 using NUnit.Framework;
 using Newtonsoft.Json.Linq;
 using System.Threading.Tasks;
+using WebApiSelfHost.Tests.Attributes;
 
 namespace WebApiSelfHost.Tests
 {
@@ -42,7 +43,7 @@ namespace WebApiSelfHost.Tests
             }
         }
 
-        [Test]
+        [Test, UseDatabase]
         public void return_a_posted_entry_after_a_post_request()
         {
             using (var httpClient = new HttpClientFactory().Create())
@@ -56,7 +57,6 @@ namespace WebApiSelfHost.Tests
                         active = true,
                         creationTime = new DateTime(2016, 1, 1)
                     };
-
                 var content = new JsonContent(json);
                 var expected = content.ReadAsJsonAsync().Result;
                 content.Headers.ContentType.MediaType = "application/json";
