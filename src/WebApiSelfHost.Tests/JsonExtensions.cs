@@ -26,6 +26,11 @@ namespace WebApiSelfHost.Tests
             }
             return content.ReadAsStringAsync().ContinueWith(t => XDocument.Parse(t.Result));
         }
+        public static dynamic ToJObject<T>(this T obj)
+        {
+            dynamic serialized = JsonConvert.SerializeObject(obj);
+            return JsonConvert.DeserializeObject(serialized);
+        }
 
     }
 }

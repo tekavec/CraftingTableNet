@@ -38,7 +38,7 @@ namespace WebApiSelfHost
                 using (var command = connection.CreateCommand())
                 {
                     var dbSchema = Resources.CreateDatabase;
-                    foreach (var sql in dbSchema.Split(new string[] {"GO"}, StringSplitOptions.RemoveEmptyEntries))
+                    foreach (var sql in dbSchema.Split(new[] {"GO"}, StringSplitOptions.RemoveEmptyEntries))
                     {
                         command.CommandText = sql;
                         command.ExecuteNonQuery();

@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 
-namespace WebApiSelfHost.Model.Users
+namespace WebApiSelfHost.Model.User
 {
-    public class AppUserEditModel
+    public class AppUser
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
